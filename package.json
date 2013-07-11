@@ -4,12 +4,15 @@
   "dependencies": {
     "express": "2.5.x",
     "node-kippt": "0.0.4",
-    "mocha": "1.8.2",
     "mailparser": "0.3.4",
-    "simplesmtp": "0.2.4"
+    "simplesmtp": "0.2.4",
+    "nodemailer": "*"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
+  },
+  "devDependencies": {
+    "mandrill": "~0.1.0"
   }
 }
