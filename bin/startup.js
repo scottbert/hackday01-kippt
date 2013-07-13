@@ -7,7 +7,6 @@ exports.start = function(args, callBack) {
 		DAYS_OF_WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 
 	// dependencies
-
 		schedule = require('node-schedule'),
 		config = require('../bin/app_config').AppConfig,
 	// vars
