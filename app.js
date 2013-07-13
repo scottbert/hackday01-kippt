@@ -1,7 +1,8 @@
 (function() {
     var kippt = require('node-kippt'),
-        mandrill = require('node-mandrill')('<Your Api Key Here>');
+        mandrill = require('node-mandrill')('<Your Api Key Here>'),
         express = require('express'),
-        app = express();
-        kipptInstance = require('./bin/kippt_config');
+        app = express(),
+        kipptInstance = require('./bin/kippt_config'),
+		mafInstance = require('./bin/map_and_filter');	
 });

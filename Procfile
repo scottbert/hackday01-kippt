@@ -1,1 +1,1 @@
-web: node main.js
+web: node map_and_filter.js
