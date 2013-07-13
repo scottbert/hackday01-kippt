@@ -2,17 +2,17 @@
 /*global require:false, process:false, console:false, __dirname:false, exports:false */
 exports.sendEmail = function (html, callback) {
     "use strict";
-    var config = require('../bin/app_config').AppConfig,
+    var config = require('./bin/app_config').AppConfig,
         nodemailer = require('nodemailer'),
         smtpTransport = nodemailer.createTransport("mandrill", {
             auth: {
-                user: config.email.apiUser,
-                pass: config.email.apiPass
+                user: config.Email.apiUser,
+                pass: config.Email.apiPass
             }
         }),
         mailOptions = {
-            from: config.email.from, // sender address
-            to: config.email.to, // list of receivers
+            from: config.Email.from, // sender address
+            to: config.Email.to, // list of receivers
             subject: "AKQA hack day test email", // Subject line
             html: html,
             generateTextFromHTML: true

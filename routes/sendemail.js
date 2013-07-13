@@ -6,7 +6,7 @@
 
 exports.index = function (req, res) {
     "use strict";
-    var mailer = require('./mailer'),
+    var mailer = require('../mailer'),
         fs = require('fs'),
         str = fs.readFileSync('./views/email.ejs', 'utf8');
     mailer.sendEmail(str, function() {
