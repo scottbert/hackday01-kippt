@@ -2,7 +2,7 @@
   "name": "hackday01-kippt",
   "version": "0.0.1",
   "dependencies": {
-    "express": "*",
+    "express": "~3.3.4",
     "node-kippt": "0.0.4",
     "nodemailer": "*",
     "ejs": "*",
@@ -13,8 +13,6 @@
     "npm": "*"
   },
   "devDependencies": {
-    "mandrill": "~0.1.0",
-    "node-mandrill": "~1.0.1",
     "node-schedule": "~0.1.8"
   }
 }

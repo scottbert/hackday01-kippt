@@ -1,3 +1,5 @@
+/*jslint bitwise: false, browser: true, es5: true, windows: false, evil: false, nomen: true, white: true, plusplus: true, vars: true, evil:true, regexp:true */
+/*global require:false, process:false, console:false, __dirname:false*/
     var nodeKippt = require('node-kippt');
     var Config = require('../bin/app_config');
 
