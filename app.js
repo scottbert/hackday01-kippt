@@ -17,8 +17,16 @@
 
         startup = require('./bin/startup'),
 
-        // ROUTES OBJECTS
-        sendemail = require('./routes/sendemail');
+        // Email Template and dummy html
+        emailTemplates = require('./bin/templates'),
+		
+		// ROUTES OBJECTS
+        sendemail = require('./routes/sendemail'),
+		
+        html = emailTemplates.templates.compileTemplate();
+
+		// Testing templates
+		console.log(html);
         
 		configureExpress();
 	
@@ -48,8 +56,6 @@
 		app.get('/sendemail', sendemail.index);
 		app.get('/', sendemail.index);
 		
-		console.log("configured express");
-
 		http.createServer(app).listen(app.get('port'), function () {
 			console.log("Express server listening on port " + app.get('port'));
 		});
