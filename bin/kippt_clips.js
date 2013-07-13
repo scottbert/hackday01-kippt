@@ -1,8 +1,6 @@
     var nodeKippt = require('node-kippt');
     var Config = require('../bin/app_config');
 
-    console.log(Config);
-
     exports.KipptClips = {
         init: function(username, api_token) {
             this.username = username || 'akqa';
@@ -16,7 +14,7 @@
             this.Clips = {};
 
             //Initialise 
-            this.authenticateWithService(this.username, this.apiToken, this.getClips);
+            this.authenticateWithService(this.username, this.apiToken, this.getClips.apply(this));
         },
         authenticateWithService: function(username, apiToken, callback){
 
@@ -25,21 +23,26 @@
               api_token: apiToken
             });
 
+                console.log('KipptApi');
+                console.log(this.KipptApi);
+
+            //Get Clips
             callback(this.KipptApi);
         },
         getSinceDate: function(days) {
+            var now = new Date(0);
             return new Date().setDate(now.getDate()-(days));
         },
         getClips: function(api) {
-            
-            api.clips.all({
+            console.log(this);
+
+            var date = this.getSinceDate(7);
+            this.KipptApi.clips.all({
                 since: date
                 }, function(error, data) {
-                    console.log(error);
                   if(!error) {
                     this.Clips = data;
 
-                    console.log(this.Clips);
                    }
                 });
         }
