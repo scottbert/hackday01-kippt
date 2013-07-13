@@ -1,8 +1,6 @@
     var nodeKippt = require('node-kippt');
     var Config = require('../bin/app_config');
 
-    console.log(Config);
-
     exports.KipptClips = {
         init: function(username, api_token) {
             this.username = username || 'akqa';
@@ -35,11 +33,9 @@
             api.clips.all({
                 since: date
                 }, function(error, data) {
-                    console.log(error);
                   if(!error) {
                     this.Clips = data;
 
-                    console.log(this.Clips);
                    }
                 });
         }
