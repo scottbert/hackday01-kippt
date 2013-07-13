@@ -19,13 +19,12 @@
 
         // ROUTES OBJECTS
         sendemail = require('./routes/sendemail');
-
-		var clips =  new Kippt.KipptClips().getClips();
         
 		configureExpress();
 	
 		var schedulerFired = function(){
 			console.log("scheduler fired");
+			var clips =  new Kippt.KipptClips().getClips();
 		}
 		
 		startup.start(process.argv, schedulerFired);

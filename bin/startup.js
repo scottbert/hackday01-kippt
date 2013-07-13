@@ -8,8 +8,6 @@ exports.start = function(args, callBack) {
 	var schedule = require('node-schedule');
 	var config = require('../bin/app_config').AppConfig;
 	
-	console.log(args);
-	
 	// vars
 	var isManualMode = (args.indexOf('manual') > -1),
 		rule = new schedule.RecurrenceRule(),
