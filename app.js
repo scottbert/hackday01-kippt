@@ -21,10 +21,9 @@
         sendemail = require('./routes/sendemail');
     // A collection of Clips from Kippt
     //var Clips = Kippt.KipptClips.init();
-
     app.configure(function () {
         app.set('views', __dirname + '/views');
-        app.set('port', AppConfig.ExpressPort);
+        app.set('port', AppConfig.AppConfig.Express.PORT);
         app.set('view engine', 'ejs');
         app.use(expressLayouts);
         app.use(express.static(path.join(__dirname, 'public')));

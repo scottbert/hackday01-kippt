@@ -11,5 +11,7 @@ exports.AppConfig = {
 		hour: 15,
 		minute: 0
 	},
-    ExpressPort: 9998
+    Express: {
+        PORT: 9998
+    }
 };
