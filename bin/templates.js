@@ -24,6 +24,51 @@ exports.templates = (function() {
                 "notes": "",
                 "list": "/api/lists/318394/",
                 "resource_uri": "/api/clips/15615286/"
+            },{
+                "title": "Nodemailer",
+                "app_url": "/AKQA/akqa-web-development/clips/15615431",
+                "full_name": "Scott van Looy",
+                "created": 1373709929,
+                "url": "https://github.com/andris9/Nodemailer",
+                "notes": "",
+                "list": "/api/lists/318394/",
+                "resource_uri": "/api/clips/15615431/"
+            }, {
+                "title": "Timers Node.js v0.10.13 Manual & Documentation",
+                "app_url": "/AKQA/akqa-web-development/clips/15615286",
+                "full_name": "Scott van Looy",
+                "created": 1373709929,
+                "url": "http://nodejs.org/docs/v0.10.13/api/timers.html",
+                "notes": "",
+                "list": "/api/lists/318394/",
+                "resource_uri": "/api/clips/15615286/"
+            },{
+                "title": "Nodemailer",
+                "app_url": "/AKQA/akqa-web-development/clips/15615431",
+                "full_name": "Scott van Looy",
+                "created": 1373709929,
+                "url": "https://github.com/andris9/Nodemailer",
+                "notes": "",
+                "list": "/api/lists/318394/",
+                "resource_uri": "/api/clips/15615431/"
+            }, {
+                "title": "Timers Node.js v0.10.13 Manual & Documentation",
+                "app_url": "/AKQA/akqa-web-development/clips/15615286",
+                "full_name": "Scott van Looy",
+                "created": 1373709929,
+                "url": "http://nodejs.org/docs/v0.10.13/api/timers.html",
+                "notes": "",
+                "list": "/api/lists/318394/",
+                "resource_uri": "/api/clips/15615286/"
+            }, {
+                "title": "Timers Node.js v0.10.13 Manual & Documentation",
+                "app_url": "/AKQA/akqa-web-development/clips/15615286",
+                "full_name": "Scott van Looy",
+                "created": 1373709929,
+                "url": "http://nodejs.org/docs/v0.10.13/api/timers.html",
+                "notes": "",
+                "list": "/api/lists/318394/",
+                "resource_uri": "/api/clips/15615286/"
             }]
         };
 

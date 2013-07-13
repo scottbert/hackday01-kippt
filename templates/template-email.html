@@ -37,14 +37,49 @@
         EMAIL STYLES - Desktop-first :(
         ****************************************************
         ***************************************************/
-        h1 {
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .title {
             font-family: "TrajanPro", Helvetica, Arial, sans-serif;
             font-size: 42px;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             color: #666;
 
-            margin: 0 0 30px 0;
+            margin: 0 0 15px 0;
             padding: 0;
+        }
+
+        .latest-clips {
+            font-size: 20px;
+        }
+
+        .clip-title {
+            font-size: 18px;
+        }
+
+        .clip-url {
+            font-size: 12px;
+        }
+
+        .clip-posted {
+            font-size: 12px;
+        }
+
+        .clip-tags {
+            font-size: 12px;
+        }
+
+        .clip-shared-by {
+            font-size: 10px;
+        }
+
+        .no-posts {
+            font-size: 24px;
+            color: #999;
+            font-weight: bold;
+            text-align: center;
         }
 
         /***************************************************
@@ -53,73 +88,13 @@
         ****************************************************
         ***************************************************/
         @media only screen and (max-device-width: 480px) {
-            /* Part one of controlling phone number linking for mobile. */
-            a[href^="tel"], a[href^="sms"] {
-                        text-decoration: none;
-                        color: blue; /* or whatever your want */
-                        pointer-events: none;
-                        cursor: default;
-                    }
-
-            .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-                        text-decoration: default;
-                        color: orange !important;
-                        pointer-events: auto;
-                        cursor: default;
-                    }
+            td {
+                display: block;
+            }
 
         }
-
-        /* More Specific Targeting */
-
-        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-        /* You guessed it, ipad (tablets, smaller screens, etc) */
-            /* repeating for the ipad */
-            a[href^="tel"], a[href^="sms"] {
-                        text-decoration: none;
-                        color: blue; /* or whatever your want */
-                        pointer-events: none;
-                        cursor: default;
-                    }
-
-            .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-                        text-decoration: default;
-                        color: orange !important;
-                        pointer-events: auto;
-                        cursor: default;
-                    }
-        }
-
-        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-        /* Put your iPhone 4g styles in here */
-        }
-
-        /* Android targeting */
-        @media only screen and (-webkit-device-pixel-ratio:.75){
-        /* Put CSS for low density (ldpi) Android layouts in here */
-        }
-        @media only screen and (-webkit-device-pixel-ratio:1){
-        /* Put CSS for medium density (mdpi) Android layouts in here */
-        }
-        @media only screen and (-webkit-device-pixel-ratio:1.5){
-        /* Put CSS for high density (hdpi) Android layouts in here */
-        }
-        /* end Android targeting */
 
     </style>
-
-    <!-- Targeting Windows Mobile -->
-    <!--[if IEMobile 7]>
-    <style type="text/css">
-
-    </style>
-    <![endif]-->
-
-    <!-- ***********************************************
-    ****************************************************
-    END MOBILE TARGETING
-    ****************************************************
-    ************************************************ -->
 
     <!--[if gte mso 9]>
         <style>
@@ -128,45 +103,70 @@
     <![endif]-->
 </head>
 <body>
-    <table cellpadding="0" cellspacing="0" border="0" width="630" id="backgroundTable">
-    <tr><td colspan="2" height="30"><img src="../images/clear.gif" width="630" height="30" alt=""></td></tr>
+    <table cellpadding="0" cellspacing="0" border="0" width="950" id="backgroundTable">
+    <tr><td colspan="2" height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
     <tr>
         <td valign="top" width="30"><img src="../images/clear.gif" width="30" height="1" alt=""></td>
-        <td valign="top" width="600">
-            <table cellpadding="0" cellspacing="0" border="0" width="600">
+        <td valign="top" width="920">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
             <tr><td height="1" bgcolor="#e5e5e5"><img src="../images/clear.gif" width="630" height="1" alt=""></td></tr>
-            <tr><td height="30"><img src="../images/clear.gif" width="630" height="30" alt=""></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
             <tr>
                 <td>
-                    <h1>AKQA Hack Day Email</h1>
-                    <% if (clips.length) { %>
+                    <h1 class="title">This week's clips</h1>
+                    <p class="latest-clips">Latest clips from <a href="https://kippt.com/AKQA/akqa-web-development">https://kippt.com/AKQA/akqa-web-development</a></p>
+                    <% if (clips.length) {
+                        var length = clips.length,
+                            counter = 1; %>
                         <table>
                         <tr>
                         <% clips.forEach(function(clip){ %>
-                            <td width="175">
-                                <h2><%= clip.title %></h2>
-                                <a href="https://kippt.com<%= clip.app_url %>">
+                            <td width="300">
+                                <h2 class="clip-title"><%= clip.title %></h2>
+                                <a href="https://kippt.com<%= clip.app_url %>" title="<%= clip.title %>">
                                     <% if (clip.media_url) { %>
-                                        <img src="<%= clip.media_url %>" width="175" height="100" alt="<%= clip.title %>">
+                                        <img class="clip-image" src="<%= clip.media_url %>" width="300" height="200" alt="<%= clip.title %>">
                                     <% } else { %>
-                                        No image!
+                                        <img class="clip-image" src="../images/clear.gif" width="300" height="200" alt="">
                                     <% } %>
                                 </a>
-                                <p>Shared by <%= clip.full_name %></p>
+                                <p class="clip-url"><a href="<%= clip.url %>"><%= clip.url %></a></p>
+                                <p class="clip-posted">Posted: <%= (new Date(clip.created)).toUTCString() %></p>
+                                <% if (clip.notes) { %>
+                                <p class="clip-tags">Tags: <%= clip.notes %></p>
+                                <% } %>
+                                <p class="clip-shared-by">Shared by <%= clip.full_name %></p>
                             </td>
-                            <td width="37"><img src="../images/clear.gif" width="37" height="1" alt=""></td>
-                        <% }) %>
+                            <% if (counter % 3 !== 0) { %>
+                            <td width="5"><img src="../images/clear.gif" width="5" height="1" alt=""></td>
+                                <% if (counter === length) { %>
+                                <td colspan="<%= 3 - (counter % 3) + (counter % 3 === 1 ? 1 : 0) %>"></td>
+                                <% }
+                            } %>
+
+                            <%
+                            if (counter !== length && counter % 3 === 0) {
+                                %>
+                                </tr>
+                                <tr><td colspan="5" height="5"><img class="clip-image" src="../images/clear.gif" width="100%" height="5" alt=""></td></tr>
+                                <tr>
+                            <%
+                            }
+
+                            counter++;
+                        }) %>
                         </tr>
                         </table>
                     <% } else { %>
-                        <p>There are no posts this time around! Come on, people!</p>
+                        <p class="no-posts">There are no posts this time around! Come on, people!</p>
                     <% } %>
                 </td>
             </tr>
-            <tr><td height="30"><img src="../images/clear.gif" width="630" height="30" alt=""></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
             <tr><td height="1" bgcolor="#e5e5e5"><img src="../images/clear.gif" width="630" height="1" alt=""></td></tr>
-            <tr><td height="30"><img src="../images/clear.gif" width="630" height="30" alt=""></td></tr>
-            <tr><td width="600" align="right"><img src="../images/logo-akqa.png" width="112" height="53" alt="AKQA"></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+            <tr><td align="right"><img src="../images/logo-akqa.png" width="112" height="53" alt="AKQA"></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
             </table>
         </td>
     </tr>
