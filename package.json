@@ -2,17 +2,19 @@
   "name": "hackday01-kippt",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.5.x",
+    "express": "*",
     "node-kippt": "0.0.4",
-    "mailparser": "0.3.4",
-    "simplesmtp": "0.2.4",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "ejs": "*",
+    "express-ejs-layouts": "*"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "*",
+    "npm": "*"
   },
   "devDependencies": {
-    "mandrill": "~0.1.0"
+    "mandrill": "~0.1.0",
+    "node-mandrill": "~1.0.1",
+    "node-schedule": "~0.1.8"
   }
 }
