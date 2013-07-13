@@ -6,15 +6,15 @@
     "node-kippt": "0.0.4",
     "mailparser": "0.3.4",
     "simplesmtp": "0.2.4",
-    "nodemailer": "*"
+    "nodemailer": "*",
+	"node-mandrill": "~1.0.1",
+    "node-schedule": "~0.1.8"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   },
   "devDependencies": {
-    "mandrill": "~0.1.0",
-    "node-mandrill": "~1.0.1",
-    "node-schedule": "~0.1.8"
+    "mandrill": "~0.1.0"
   }
 }
