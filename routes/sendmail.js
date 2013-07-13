@@ -13,11 +13,13 @@ exports.index = function (req, res) {
                 pass: "PRgF89ZeBH2oJyCBmpNkKQ"
             }
         }),
+        fs = require('fs'),
+        str = fs.readFileSync('./views/email.ejs', 'utf8'),
         mailOptions = {
             from: "Fred Foo ✔ <sickpuppy@gmail.com>", // sender address
-            to: "sickpuppy@gmail.com, akqahackday@gmail.com", // list of receivers
-            subject: "Hello ✔", // Subject line
-            html: "Hello mum"
+            to: "akqahackday@gmail.com", // list of receivers
+            subject: "AKQA hack day test", // Subject line
+            html: str
         };
     smtpTransport.sendMail(mailOptions, function (error, response) {
         res.render('email', {
