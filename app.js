@@ -28,6 +28,8 @@
     console.log(html);
 
     // A collection of Clips from Kippt
+    var api = new Kippt.KipptClips().getClips();
+
     //var Clips = Kippt.KipptClips.init();
     app.configure(function () {
         app.set('views', __dirname + '/views');
