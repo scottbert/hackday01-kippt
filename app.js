@@ -2,8 +2,7 @@
 /*global require:false, process:false, console:false, __dirname:false, exports:false */
 (function () {
     "use strict";
-    var kippt = require('node-kippt'),
-        express = require('express'),
+    var express = require('express'),
         path = require('path'),
         http = require('http'),
         expressLayouts = require('express-ejs-layouts'),
@@ -19,28 +18,20 @@
 
         // Email Template and dummy html
         emailTemplates = require('./bin/templates'),
-		
 		// ROUTES OBJECTS
-        sendemail = require('./routes/sendemail'),
-		
+        sendemail = require('./routes/sendemail'),	
         html = emailTemplates.templates.compileTemplate();
 
+            var clips = new Kippt.KipptClips().getClips();
 		// Testing templates
 		console.log(html);
-        
 		configureExpress();
-	
 		var schedulerFired = function(){
 			console.log("scheduler fired");
-			var clips =  new Kippt.KipptClips().getClips();
-		}
-		
+		};
 		startup.start(process.argv, schedulerFired);
-	
-	function configureExpress()
-	{
+	function configureExpress() {
 		console.log("configuring express");
-	
 		app.configure(function () {
 			app.set('views', __dirname + '/views');
 			app.set('port', AppConfig.AppConfig.Express.PORT);
@@ -55,12 +46,9 @@
 		// ROUTES
 		app.get('/sendemail', sendemail.index);
 		app.get('/', sendemail.index);
-		
 		http.createServer(app).listen(app.get('port'), function () {
 			console.log("Express server listening on port " + app.get('port'));
 		});
-			
 		console.log("configured express");
 	}
-    
 }());
