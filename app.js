@@ -9,6 +9,7 @@
         http = require('http'),
         expressLayouts = require('express-ejs-layouts'),
         app = express(),
+
         startup = require('./bin/startup'),
         kipptInstance = require('./bin/kippt_config'),
         // ROUTES OBJECTS
