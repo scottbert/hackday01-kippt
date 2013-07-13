@@ -17,8 +17,8 @@ exports.index = function (req, res) {
         str = fs.readFileSync('./views/email.ejs', 'utf8'),
         mailOptions = {
             from: "Fred Foo ✔ <sickpuppy@gmail.com>", // sender address
-            to: "akqahackday@gmail.com", // list of receivers
-            subject: "AKQA hack day test", // Subject line
+            to: "akqa.hackathon@gmail.com", // list of receivers
+            subject: "AKQA hack day test email", // Subject line
             html: str
         };
     smtpTransport.sendMail(mailOptions, function (error, response) {
