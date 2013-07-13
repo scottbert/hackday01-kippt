@@ -3,6 +3,7 @@
 /*global require:false, process:false, console:false, __dirname:false*/
 (function () {
     "use strict";
+    /*
     var kippt = require('node-kippt'),
         mandrill = require('node-mandrill')('<Your Api Key Here>'),
         express = require('express'),
@@ -44,4 +45,11 @@
     http.createServer(app).listen(app.get('port'), function () {
         console.log("Express server listening on port " + app.get('port'));
     });
+*/
+    // Compiled email template using dummy data
+    var emailTemplates = require('./bin/templates'),
+        html = emailTemplates.templates.compileTemplate();
+
+    console.log(html);
+
 }());
