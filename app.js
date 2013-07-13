@@ -23,24 +23,25 @@
         sendemail = require('./routes/sendemail');
         
     // A collection of Clips from Kippt
-    //var Clips = Kippt.KipptClips.init();
+    var api = new Kippt.KipptClips().getClips();
 
-    app.configure(function () {
-        app.set('views', __dirname + '/views');
-        app.set('port', 9998);
-        app.set('view engine', 'ejs');
-        app.use(expressLayouts);
-        app.use(express.static(path.join(__dirname, 'public')));
-        app.use(app.router);
-    });
-    app.configure('development', function () {
-        app.use(express.errorHandler());
-    });
-    // ROUTES
-    app.get('/sendemail', sendemail.index);
-    app.get('/', sendemail.index);
-    startup.start(process.argv);
-    http.createServer(app).listen(app.get('port'), function () {
-        console.log("Express server listening on port " + app.get('port'));
-    });
+
+    // app.configure(function () {
+    //     app.set('views', __dirname + '/views');
+    //     app.set('port', 9998);
+    //     app.set('view engine', 'ejs');
+    //     app.use(expressLayouts);
+    //     app.use(express.static(path.join(__dirname, 'public')));
+    //     app.use(app.router);
+    // });
+    // app.configure('development', function () {
+    //     app.use(express.errorHandler());
+    // });
+    // // ROUTES
+    // app.get('/sendemail', sendemail.index);
+    // app.get('/', sendemail.index);
+    // startup.start(process.argv);
+    // http.createServer(app).listen(app.get('port'), function () {
+    //     console.log("Express server listening on port " + app.get('port'));
+    // });
 }());
