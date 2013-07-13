@@ -9,7 +9,7 @@
         path = require('path'),
         http = require('http'),
         expressLayouts = require('express-ejs-layouts'),
-        //app = express(),
+        app = express(),
 
         // Global Application settings
         AppConfig = require('./bin/app_config'),
@@ -39,7 +39,7 @@
     // ROUTES
     app.get('/sendemail', sendemail.index);
     app.get('/', sendemail.index);
-    startup.start(process.argv);
+    startup.start(process.argv, function(){console.log('I iz callback');});
     http.createServer(app).listen(app.get('port'), function () {
         console.log("Express server listening on port " + app.get('port'));
     });
