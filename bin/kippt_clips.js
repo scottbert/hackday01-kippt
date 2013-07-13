@@ -35,17 +35,15 @@
             var api = authenticateWithService(),
                 date = getSinceDate(7);
             api.clips.all({
-                since: date || '1372857511'
+                since: '1372857511'
                 }, function(error, data) {
                   if(!error) {
-                    Clips = data;
+                    if(callback) {
+                        callback(data);
+                    }
                    }
                 });
-
-            callback(Clips);
-
         }
-    };
 
         return {
             getClips: getClips
