@@ -13,6 +13,7 @@
     "npm": "1.1.x"
   },
   "devDependencies": {
-    "mandrill": "~0.1.0"
+    "mandrill": "~0.1.0",
+    "node-mandrill": "~1.0.1"
   }
 }
