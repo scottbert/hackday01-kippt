@@ -17,5 +17,11 @@ exports.AppConfig = {
 	},
     Express: {
         PORT: 9998
+    },
+    Email : {
+        from: "Fred Foo ✔ <sickpuppy@gmail.com>",
+        to: "akqa.hackathon@gmail.com",
+        apiPass: "PRgF89ZeBH2oJyCBmpNkKQ",
+        apiUser: "martin.shaw@akqa.com"
     }
 };
