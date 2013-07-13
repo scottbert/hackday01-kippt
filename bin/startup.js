@@ -9,6 +9,7 @@ exports.start = function(args, callBack) {
 	// dependencies
 		schedule = require('node-schedule'),
 		config = require('../bin/app_config').AppConfig,
+
 	// vars
 		isManualMode = (args.indexOf('manual') > -1),
 		rule = new schedule.RecurrenceRule(),
