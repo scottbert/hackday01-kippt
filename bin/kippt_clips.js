@@ -1,3 +1,5 @@
+/*jshint bitwise:false, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:false, nonew:true, plusplus:false, regexp:false, undef:true, strict:true, trailing:true, expr:true, regexdash:true, browser:true, jquery:true, onevar:true */
+/*global require:false, process:false, console:false, __dirname:false, exports:false */
     var nodeKippt = require('node-kippt');
     var Config = require('../bin/app_config');
 
@@ -14,7 +16,7 @@
             this.Clips = {};
 
             //Initialise 
-            this.authenticateWithService(this.username, this.apiToken, this.getClips);
+            this.authenticateWithService(this.username, this.apiToken, this.getClips.apply(this));
         },
         authenticateWithService: function(username, apiToken, callback){
 
@@ -23,14 +25,21 @@
               api_token: apiToken
             });
 
+                console.log('KipptApi');
+                console.log(this.KipptApi);
+
+            //Get Clips
             callback(this.KipptApi);
         },
         getSinceDate: function(days) {
+            var now = new Date(0);
             return new Date().setDate(now.getDate()-(days));
         },
         getClips: function(api) {
-            
-            api.clips.all({
+            console.log(this);
+
+            var date = this.getSinceDate(7);
+            this.KipptApi.clips.all({
                 since: date
                 }, function(error, data) {
                   if(!error) {
@@ -39,6 +48,6 @@
                    }
                 });
         }
-    }
+    };
 
 
