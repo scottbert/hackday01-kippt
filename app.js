@@ -17,8 +17,16 @@
 
         startup = require('./bin/startup'),
 
+        // Email Template and dummy html
+        emailTemplates = require('./bin/templates'),
+        html = emailTemplates.templates.compileTemplate(),
+
         // ROUTES OBJECTS
         sendemail = require('./routes/sendemail');
+
+    // Testing templates
+    console.log(html);
+
     // A collection of Clips from Kippt
     var api = new Kippt.KipptClips().getClips();
 
@@ -34,6 +42,7 @@
     app.configure('development', function () {
         app.use(express.errorHandler());
     });
+
     // ROUTES
     app.get('/sendemail', sendemail.index);
     app.get('/', sendemail.index);

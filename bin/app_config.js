@@ -6,6 +6,10 @@ exports.AppConfig = {
         api_token: '3076c399fb4c7c337f5b3499ce6c3854658a4cc0',
         frequency: '7'
     },
+    Templates: {
+        path: __dirname + '/../templates/',
+        template: 'template-email.html',
+    },
 	Scheduler: {
 		dayOfWeek: 6, // saturday
 		hour: 15,

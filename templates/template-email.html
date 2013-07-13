@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hack Day email</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'TrajanPro';
+            src: url('../fonts/trajanpro-regular-webfont.eot');
+            src: url('../fonts/trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/trajanpro-regular-webfont.woff') format('woff'), url('../fonts/trajanpro-regular-webfont.ttf') format('truetype'), url('../fonts/trajanpro-regular-webfont.svg#TrajanProRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Based on The MailChimp Reset INLINE: Yes. */
+        #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+        body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+        /* End reset */
+
+        /* Some sensible defaults for images
+        Bring inline: Yes. */
+        img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+        a img {border:none;}
+        .image_fix {display:block;}
+
+        /* Outlook 07, 10 Padding issue fix
+        Bring inline: No.*/
+        table td {border-collapse: collapse;}
+
+        /* Remove spacing around Outlook 07, 10 tables
+        Bring inline: Yes */
+        table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+
+        /***************************************************
+        ****************************************************
+        EMAIL STYLES - Desktop-first :(
+        ****************************************************
+        ***************************************************/
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .title {
+            font-family: "TrajanPro", Helvetica, Arial, sans-serif;
+            font-size: 42px;
+            letter-spacing: -2px;
+            color: #666;
+
+            margin: 0 0 15px 0;
+            padding: 0;
+        }
+
+        .latest-clips {
+            font-size: 20px;
+        }
+
+        .clip-title {
+            font-size: 18px;
+        }
+
+        .clip-url {
+            font-size: 12px;
+        }
+
+        .clip-add-comment {
+            font-size: 12px;
+        }
+
+        .clip-posted {
+            font-size: 12px;
+        }
+
+        .clip-tags {
+            font-size: 12px;
+        }
+
+        .clip-shared-by {
+            font-size: 10px;
+        }
+
+        .no-posts {
+            font-size: 24px;
+            color: #999;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /***************************************************
+        ****************************************************
+        MOBILE TARGETING - Mobile-last :(
+        ****************************************************
+        ***************************************************/
+        @media only screen and (max-device-width: 480px) {
+            td {
+                display: block;
+            }
+
+        }
+
+    </style>
+
+    <!--[if gte mso 9]>
+        <style>
+        /* Target Outlook 2007 and 2010 */
+        </style>
+    <![endif]-->
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" border="0" width="950" id="backgroundTable">
+    <tr><td colspan="2" height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+    <tr>
+        <td valign="top" width="30"><img src="../images/clear.gif" width="30" height="1" alt=""></td>
+        <td valign="top" width="920">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr><td height="1" bgcolor="#e5e5e5"><img src="../images/clear.gif" width="630" height="1" alt=""></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+            <tr>
+                <td>
+                    <h1 class="title">This week's clips</h1>
+                    <p class="latest-clips">Latest clips from <a href="https://kippt.com/AKQA/akqa-web-development">https://kippt.com/AKQA/akqa-web-development</a></p>
+                    <% if (clips.length) {
+                        var length = clips.length,
+                            counter = 1; %>
+                        <table>
+                        <tr>
+                        <% clips.forEach(function(clip){ %>
+                            <td width="300">
+                                <h2 class="clip-title"><%= clip.title %></h2>
+                                <a href="https://kippt.com<%= clip.app_url %>" title="<%= clip.title %>">
+                                    <% if (clip.media_url) { %>
+                                        <img class="clip-image" src="<%= clip.media_url %>" width="300" height="200" alt="<%= clip.title %>">
+                                    <% } else { %>
+                                        <img class="clip-image" src="../images/clear.gif" width="300" height="200" alt="">
+                                    <% } %>
+                                </a>
+                                <p class="clip-url"><a href="<%= clip.url %>"><%= clip.url %></a></p>
+                                <p class="clip-add-comment"><a href="https://kippt.com<%= clip.app_url %>">Add a comment</a></p>
+                                <p class="clip-posted">Posted: <%= (new Date(clip.created)).toUTCString() %></p>
+                                <% if (clip.notes) { %>
+                                <p class="clip-tags">Tags: <%= clip.notes %></p>
+                                <% } %>
+                                <p class="clip-shared-by">Shared by <%= clip.full_name %></p>
+                            </td>
+                            <% if (counter % 3 !== 0) { %>
+                            <td width="5"><img src="../images/clear.gif" width="5" height="1" alt=""></td>
+                                <% if (counter === length) { %>
+                                <td colspan="<%= 3 - (counter % 3) + (counter % 3 === 1 ? 1 : 0) %>"></td>
+                                <% }
+                            } %>
+
+                            <%
+                            if (counter !== length && counter % 3 === 0) {
+                                %>
+                                </tr>
+                                <tr><td colspan="5" height="5"><img class="clip-image" src="../images/clear.gif" width="100%" height="5" alt=""></td></tr>
+                                <tr>
+                            <%
+                            }
+
+                            counter++;
+                        }) %>
+                        </tr>
+                        </table>
+                    <% } else { %>
+                        <p class="no-posts">There are no posts this time around! Come on, people!</p>
+                    <% } %>
+                </td>
+            </tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+            <tr><td height="1" bgcolor="#e5e5e5"><img src="../images/clear.gif" width="630" height="1" alt=""></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+            <tr><td align="right"><img src="../images/logo-akqa.png" width="112" height="53" alt="AKQA"></td></tr>
+            <tr><td height="30"><img src="../images/clear.gif" width="100%" height="30" alt=""></td></tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+</body>
+</html>
