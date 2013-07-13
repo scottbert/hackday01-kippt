@@ -29,9 +29,16 @@ module.exports = (function(input){
 	};
 	
 	parsed = JSON.parse(input);
+	console.log("JSON parsed into object.");
+	
 	objects = parsed.objects;
+	console.log("Clip objects extracted from raw Kippt object.");
+	
 	clips = arrayify(objects);
+	console.log("Clip objects arrayified.");
+	
 	mappedAndFiltered = clips.map(mapping);
+	console.log("Mapping and filtering complete.");
 
 	return mappedAndFiltered;
 });
