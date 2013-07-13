@@ -18,7 +18,7 @@ exports.index = function (req, res) {
         mailOptions = {
             from: "Fred Foo ✔ <sickpuppy@gmail.com>", // sender address
             to: "akqa.hackathon@gmail.com", // list of receivers
-            subject: "This is a test email", // Subject line
+            subject: "AKQA hack day test email", // Subject line
             html: str,
             generateTextFromHTML: true
         };
