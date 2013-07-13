@@ -1,5 +1,5 @@
 var map_and_filter = require("../bin/map_and_filter"),
-	maf_test_samples = require("../test_samples/map_and_filter-samples");
+	maf_test_samples = require("./test_samples/map_and_filter-samples");
 
 describe("Mapping and filtering of JSON input",function(){
 	var samples;
