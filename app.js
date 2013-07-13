@@ -19,24 +19,24 @@
 
         // ROUTES OBJECTS
         sendemail = require('./routes/sendemail');
-		
+
 		var clips =  new Kippt.KipptClips().getClips();
         
-		configureExpress(app);
-		
+		configureExpress();
+	
 		var schedulerFired = function(){
 			console.log("scheduler fired");
 		}
 		
 		startup.start(process.argv, schedulerFired);
 	
-	function configureExpress(app)
+	function configureExpress()
 	{
 		console.log("configuring express");
 	
 		app.configure(function () {
 			app.set('views', __dirname + '/views');
-			app.set('port', 9998);
+			app.set('port', AppConfig.AppConfig.Express.PORT);
 			app.set('view engine', 'ejs');
 			app.use(expressLayouts);
 			app.use(express.static(path.join(__dirname, 'public')));
@@ -50,5 +50,12 @@
 		app.get('/', sendemail.index);
 		
 		console.log("configured express");
+
+		http.createServer(app).listen(app.get('port'), function () {
+			console.log("Express server listening on port " + app.get('port'));
+		});
+			
+		console.log("configured express");
 	}
+    
 }());
