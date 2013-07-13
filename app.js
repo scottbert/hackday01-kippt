@@ -9,7 +9,7 @@
         path = require('path'),
         http = require('http'),
         expressLayouts = require('express-ejs-layouts'),
-        app = express(),
+        //app = express(),
 
         // Global Application settings
         AppConfig = require('./bin/app_config'),
@@ -18,13 +18,12 @@
         Kippt = require('./bin/kippt_clips'),
 
         startup = require('./bin/startup'),
-        kipptInstance = require('./bin/kippt_config'),
 
         // ROUTES OBJECTS
         sendemail = require('./routes/sendemail');
         
     // A collection of Clips from Kippt
-    var Clips = Kippt.KipptClips.init();
+    //var Clips = Kippt.KipptClips.init();
 
     app.configure(function () {
         app.set('views', __dirname + '/views');
