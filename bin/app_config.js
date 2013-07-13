@@ -1,3 +1,5 @@
+/*jshint bitwise:false, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:false, nonew:true, plusplus:false, regexp:false, undef:true, strict:true, trailing:true, expr:true, regexdash:true, browser:true, jquery:true, onevar:true */
+/*global require:false, process:false, console:false, __dirname:false, exports:false */
 exports.AppConfig = {
     Kippt: {
         username: 'akqa',
@@ -7,6 +9,7 @@ exports.AppConfig = {
 	Scheduler: {
 		dayOfWeek: 6, // saturday
 		hour: 15,
-		minute: 00
-	}
-} 
+		minute: 0
+	},
+    ExpressPort: 9998
+};

@@ -1,10 +1,8 @@
-
-/*jslint bitwise: false, browser: true, es5: true, windows: false, evil: false, nomen: true, white: false, plusplus: true, vars: true, evil:true, regexp:true */
-/*global require:false, process:false, console:false, __dirname:false*/
+/*jshint bitwise:false, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:false, nonew:true, plusplus:false, regexp:false, undef:true, strict:true, trailing:true, expr:true, regexdash:true, browser:true, jquery:true, onevar:true */
+/*global require:false, process:false, console:false, __dirname:false, exports:false */
 (function () {
     "use strict";
     var kippt = require('node-kippt'),
-        mandrill = require('node-mandrill')('<Your Api Key Here>'),
         express = require('express'),
         path = require('path'),
         http = require('http'),
@@ -26,7 +24,7 @@
 
     app.configure(function () {
         app.set('views', __dirname + '/views');
-        app.set('port', 9998);
+        app.set('port', AppConfig.ExpressPort);
         app.set('view engine', 'ejs');
         app.use(expressLayouts);
         app.use(express.static(path.join(__dirname, 'public')));
