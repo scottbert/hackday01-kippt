@@ -1,7 +1,9 @@
 /*jshint bitwise:false, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:false, nonew:true, plusplus:false, regexp:false, undef:true, strict:true, trailing:true, expr:true, regexdash:true, browser:true, jquery:true, onevar:true */
 /*global require:false, process:false, console:false, __dirname:false, exports:false */
-    var nodeKippt = require('node-kippt');
-    var Config = require('../bin/app_config');
+(function () {
+    "use strict";
+    var nodeKippt = require('node-kippt'),
+        Config = require('../bin/app_config');
 
 
     exports.KipptClips = function() {
@@ -13,8 +15,8 @@
 
         function authenticateWithService(username, apiToken) {
 
-            var username = username || 'akqa',
-                apiToken = apiToken || '3076c399fb4c7c337f5b3499ce6c3854658a4cc0';
+            username = username || 'akqa';
+            apiToken = apiToken || '3076c399fb4c7c337f5b3499ce6c3854658a4cc0';
 
             KipptApi = new nodeKippt.KipptAPI({
               username: username,
@@ -45,10 +47,9 @@
             callback(Clips);
 
         }
-    };
-
         return {
             getClips: getClips
         };
     };
+}());
 
