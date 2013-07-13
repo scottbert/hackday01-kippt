@@ -1,16 +1,13 @@
 exports.start = function() {
 
+
 	// consts
-	var SCHEDULED_RUN = {
-			dayOfWeek: 6, // saturday
-			hour: 13,
-			minute: 00
-		},
-		MANUAL_DELAY = 5,
+	var MANUAL_DELAY = 5,
 		DAYS_OF_WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	
 	// dependencies
 	var schedule = require('node-schedule');
+	var config = require('../bin/app_config').AppConfig;
 	
 	// vars
 	var isManualMode = (arguments['0'].indexOf('manual') > -1),
@@ -28,7 +25,9 @@ exports.start = function() {
 	} else {
 		console.log("Running Schedule Mode");
 		
-		nextRun = SCHEDULED_RUN;
+		nextRun = config.Scheduler;
+		
+		console.log(config);
 		
 		console.log("Next run at " + DAYS_OF_WEEK[nextRun.dayOfWeek] + ' at ' + nextRun.hour + ':' + nextRun.minute);
 	}

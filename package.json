@@ -4,17 +4,16 @@
   "dependencies": {
     "express": "*",
     "node-kippt": "0.0.4",
+    "mailparser": "0.3.4",
+    "simplesmtp": "0.2.4",
     "nodemailer": "*",
+	"node-mandrill": "~1.0.1",
+    "node-schedule": "~0.1.8",
     "ejs": "*",
     "express-ejs-layouts": "*"
   },
   "engines": {
     "node": "*",
     "npm": "*"
-  },
-  "devDependencies": {
-    "mandrill": "~0.1.0",
-    "node-mandrill": "~1.0.1",
-    "node-schedule": "~0.1.8"
   }
 }
